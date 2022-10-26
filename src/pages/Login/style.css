@@ -1,0 +1,25 @@
+input{
+  width: 100%;
+}
+
+.container {
+    background-image: url('../../assets/background.jpg')!important;
+    width: 100%;
+}
+
+form {
+    margin: 0 auto;
+}
+
+.btn_login:hover{
+    transform: scale(1.05);
+    background-color: #f05723;
+}
+@media screen and (max-width: 720px) {
+.box {
+    width: 45%!important;
+}
+.box > input {
+    width: 90%;
+}
+}

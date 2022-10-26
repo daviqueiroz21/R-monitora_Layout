@@ -1,0 +1,12 @@
+.max-height {
+  box-sizing: border-box;
+  
+  max-height: 250px!important;
+  min-height: 250px!important;
+}
+
+.video-js {
+    margin-left:7px;
+    height: 255px!important;
+    background-color: #393943a6!important;
+}

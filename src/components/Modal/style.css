@@ -1,0 +1,48 @@
+.bg_account{
+    width: 100%;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    z-index: 999;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+.title_account {
+    align-self: center;
+}
+form {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    align-items: justify;
+}
+
+.btn_exit{
+    color: #f14;
+    align-self: flex-end;
+    display: inline-block;
+    padding: 5px 10px;
+    cursor: pointer;
+    font-weight: bold;
+    margin: 0;
+
+}
+.btn_exit:hover{
+    transform: scale(1.1);
+}
+
+@media screen and (max-width: 1015px) {
+    .container_acount{
+        width: 50%!important;
+    }
+}
+
+@media screen and (max-width: 540px) {
+    .container_acount{
+        width: 80%!important;
+    }
+}

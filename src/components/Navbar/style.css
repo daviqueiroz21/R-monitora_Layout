@@ -1,0 +1,29 @@
+.container_all{
+  max-width: 100%;
+}
+
+.appBar {
+  background: rgb(255,147,31);
+  background: -moz-linear-gradient(90deg, rgba(255,147,31,1) 0%, rgba(238,126,40,1) 35%);
+  background: -webkit-linear-gradient(90deg, rgba(255,147,31,1) 0%, rgba(238,126,40,1) 35%);
+  background: linear-gradient(90deg, rgba(255,147,31,1) 0%, rgba(238,126,40,1) 35%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ff931f",endColorstr="#ee7e28",GradientType=1);
+}
+
+.logo_dashboard{
+  width: 100px;
+}
+
+.buttonSettings {
+  border: 1.5px solid #ffff;
+}
+
+.line_around {
+  box-sizing: border-box;
+
+  width: 90%;
+	margin: 30px auto;
+	border-radius: 8px;
+	padding: 30px;
+	border: 2px solid #ccc;
+}

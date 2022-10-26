@@ -1,0 +1,6 @@
+.sectionSearch{
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  padding: 10px 30px;
+}
