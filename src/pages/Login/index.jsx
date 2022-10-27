@@ -9,9 +9,13 @@ import logo from '../../assets/logo_input.png';
 import api from '../../services/api';
 import { getItem, setItem } from '../../utils/storageLogin';
 import './style.css';
+import CircularIndeterminate from '../../components/Loading';
+import BasicAlerts from '../../components/Alert';
 
 function Login() {
 	const [formLogin, setFormLogin] = useState({ email: '', senha: '' });
+	const [loading, setloading] = useState(false);
+	const [erro, setErro] = useState(null);
 	const navigate = useNavigate();
 	function handleChangeInput(e) {
 		setFormLogin({ ...formLogin, [e.target.name]: e.target.value });
@@ -21,12 +25,13 @@ function Login() {
 		const token = getItem('token');
 
 		if (token) {
-			navigate('/dashboard');
+			navigate('/inicio');
 		}
 	}, []);
 
 	async function handleSubmit(e) {
 		e.preventDefault();
+		setloading(true);
 		try {
 			const response = await api.post('/login', {
 				...formLogin,
@@ -38,9 +43,11 @@ function Login() {
 			} = response.data;
 			setItem('userId', id);
 			setItem('token', token);
-			navigate('/dashboard');
+			navigate('/inicio');
 		} catch (error) {
-			console.log(error);
+			setErro(error.response.data);
+			console.log(error.response.data);
+			setloading(false);
 		}
 	}
 
@@ -51,6 +58,7 @@ function Login() {
 
 	return (
 		<Container className="container">
+			{erro && <BasicAlerts mensagem={erro.mensagem} setErro={setErro} />}
 			<form onSubmit={handleSubmit}>
 				<Box className="box">
 					<img src={logo} alt="Logo" />
@@ -66,7 +74,6 @@ function Login() {
 						/>
 						<MdAlternateEmail size={16} className="icon email" />
 					</div>
-
 					<label htmlFor="senha">Senha</label>
 					<div>
 						<Input
@@ -92,6 +99,7 @@ function Login() {
 						)}
 					</div>
 					<DefaulBtn className="btn_login">Entrar</DefaulBtn>
+					{loading && <CircularIndeterminate />}
 					<a href="mailto:atendimento@renova.net">Esqueci minha senha</a>
 				</Box>
 			</form>

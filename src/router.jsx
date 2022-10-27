@@ -1,10 +1,11 @@
 import * as React from 'react';
 import { Navigate, Outlet, Route, Routes } from 'react-router-dom';
 import Consulta from './pages/Consulta';
-import Dashboard from './pages/Dashboard';
 import Login from './pages/Login';
 import Navbar from './components/Navbar';
 import { getItem } from './utils/storageLogin';
+import Inicio from './pages/Inicio';
+import Cameras from './pages/Cameras';
 
 export default function RouterMain() {
 	function ProtectRouter() {
@@ -24,7 +25,8 @@ export default function RouterMain() {
 
 				<Route element={<ProtectRouter />}>
 					<Route path="" element={<Navbar />}>
-						<Route path="/dashboard" element={<Dashboard />} />
+						<Route path="/inicio" element={<Inicio />} />
+						<Route path="/cameras" element={<Cameras />} />
 						<Route path="/consulta" element={<Consulta />} />
 					</Route>
 				</Route>

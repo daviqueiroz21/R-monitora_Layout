@@ -2,6 +2,7 @@ import React from 'react';
 import './style.css';
 import camright from '../../assets/right_cam.png';
 import camleft from '../../assets/left_cam.png';
+import Button from '@mui/material/Button';
 function Consulta() {
 	return (
 		<section>
@@ -19,7 +20,9 @@ function Consulta() {
 					<option value="cameras">Cam3</option>
 				</select>
 				<input className="inputs_syle" type="datetime-local" />
-
+				<Button className="btn_query" variant="contained" color="success">
+					Consultar
+				</Button>
 				<video controls>
 					<source src="..Videos/video1.mp4" type="video/mp4" />
 				</video>

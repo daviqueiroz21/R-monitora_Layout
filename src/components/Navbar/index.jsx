@@ -1,3 +1,4 @@
+/* eslint-disable indent */
 import MenuIcon from '@mui/icons-material/Menu';
 import AppBar from '@mui/material/AppBar';
 import Avatar from '@mui/material/Avatar';
@@ -18,7 +19,7 @@ import api from '../../services/api';
 import { getItem, removeItem } from '../../utils/storageLogin';
 import './style.css';
 
-const pages = ['Inicio', 'Cameras', 'Consulta', 'Sobre Nós'];
+const pages = ['Inicio', 'Cameras', 'Consulta'];
 const settings = ['Conta', 'Cameras', 'Sair'];
 
 const ResponsiveAppBar = () => {
@@ -42,8 +43,19 @@ const ResponsiveAppBar = () => {
 	};
 
 	const handlePages = (event) => {
-		if (event.target.innerText === 'CONSULTA') {
-			navigate('/consulta');
+		switch (event.target.innerText) {
+			case 'CONSULTA':
+				navigate('/consulta');
+				break;
+			case 'CAMERAS':
+				navigate('/cameras');
+				break;
+			case 'INICIO':
+				navigate('/inicio');
+				break;
+			case 'SOBRE NÓS':
+				navigate('/sobrenos');
+				break;
 		}
 	};
 	const handleOpenUserMenu = (event) => {

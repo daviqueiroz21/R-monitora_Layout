@@ -20,6 +20,8 @@
 
 .line_around {
   box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
 
   width: 90%;
 	margin: 30px auto;

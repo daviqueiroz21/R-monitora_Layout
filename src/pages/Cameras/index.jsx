@@ -7,7 +7,7 @@ import { getItem } from '../../utils/storageLogin';
 import { VideoContainer } from './style.js';
 import './style.css';
 
-export default function Dashboard() {
+export default function Cameras() {
 	const navigate = useNavigate();
 	const token = getItem('token');
 	const [ListCameras, SetListCameras] = useState([]);

@@ -46,3 +46,8 @@ video {
   width: 100%;
     border-radius: 8px;
 }
+
+.btn_query {
+  padding: 8px!important;
+  margin: 10px!important;
+}
