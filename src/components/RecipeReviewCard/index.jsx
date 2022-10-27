@@ -45,7 +45,7 @@ export default function RecipeReviewCard(props) {
 						inactivityTimeout: 0,
 						sources: [
 							{
-								src: `http://191.232.199.23/hls/${keystream}.m3u8`,
+								src: `/var/www/html/stream/hls/${keystream}.m3u8`,
 								type: 'application/vnd.apple.mpegurl',
 							},
 						],

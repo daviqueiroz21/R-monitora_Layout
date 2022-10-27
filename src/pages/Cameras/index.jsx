@@ -23,7 +23,7 @@ export default function Cameras() {
 				},
 			});
 
-			SetListCameras(Listcameras.data.cameras);
+			SetListCameras(Listcameras.data.camerasOn);
 		} catch (error) {}
 	}
 

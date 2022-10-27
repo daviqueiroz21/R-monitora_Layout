@@ -36,6 +36,10 @@ const ResponsiveAppBar = () => {
 			navigate('/');
 			window.location.reload(false);
 		}
+
+		if (event.target.innerHTML === 'Cameras') {
+			navigate('/cameras');
+		}
 	};
 
 	const handleOpenNavMenu = (event) => {
@@ -43,19 +47,14 @@ const ResponsiveAppBar = () => {
 	};
 
 	const handlePages = (event) => {
-		switch (event.target.innerText) {
-			case 'CONSULTA':
-				navigate('/consulta');
-				break;
-			case 'CAMERAS':
-				navigate('/cameras');
-				break;
-			case 'INICIO':
-				navigate('/inicio');
-				break;
-			case 'SOBRE NÓS':
-				navigate('/sobrenos');
-				break;
+		const escolha = event.currentTarget.innerText;
+
+		if (escolha === 'Consulta' || escolha === 'CONSULTA') {
+			navigate('/consulta');
+		} else if (escolha === 'CAMERAS' || escolha === 'Cameras') {
+			navigate('/cameras');
+		} else if (escolha === 'INICIO' || escolha === 'Inicio') {
+			navigate('/inicio');
 		}
 	};
 	const handleOpenUserMenu = (event) => {
