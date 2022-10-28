@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import api from '../../services/api';
-import ComboBox from '../../components/AutoComplete';
 import RecipeReviewCard from '../../components/RecipeReviewCard';
 import { getItem } from '../../utils/storageLogin';
 import { VideoContainer } from './style.js';
 import './style.css';
+import Playground from '../../components/AutoComplete';
 
 export default function Cameras() {
 	const navigate = useNavigate();
@@ -37,7 +37,7 @@ export default function Cameras() {
 	return (
 		<>
 			<div className="sectionSearch">
-				<ComboBox />
+				<Playground />
 			</div>
 			<VideoContainer>
 				{ListCameras.map((camera) => (

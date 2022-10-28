@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { ReactFlvPlayer } from 'react-flv-player';
 import './style.css';
 import camright from '../../assets/right_cam.png';
 import camleft from '../../assets/left_cam.png';
@@ -24,7 +25,7 @@ function Consulta() {
 			return;
 		}
 
-		setLocalVideo(`/var/www/html/rec/${camera}-${time}.flv`);
+		setLocalVideo(`http://143.244.166.170:8088/rec/${camera}-${time}.flv`);
 	};
 
 	const handleChangeInputs = (event) => {
@@ -99,9 +100,7 @@ function Consulta() {
 					Consultar
 				</Button>
 				{localVideo && (
-					<video controls>
-						<source src={localVideo} type="video/flv" />
-					</video>
+					<ReactFlvPlayer url={localVideo} width="100%" isMuted={true} />
 				)}
 			</div>
 		</section>

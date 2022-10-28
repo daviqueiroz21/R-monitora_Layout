@@ -77,7 +77,12 @@ const ResponsiveAppBar = () => {
 				},
 			});
 			return setUser(response.data);
-		} catch (error) {}
+		} catch (error) {
+			removeItem('token');
+			removeItem('userId');
+			navigate('/');
+			window.location.reload(false);
+		}
 	};
 
 	useEffect(() => {
