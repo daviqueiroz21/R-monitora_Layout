@@ -1,5 +1,6 @@
+/* eslint-disable indent */
 import React, { useState, useEffect } from 'react';
-import { ReactFlvPlayer } from 'react-flv-player';
+import { ReactFlvPlayer } from 'flv-player-react';
 import './style.css';
 import camright from '../../assets/right_cam.png';
 import camleft from '../../assets/left_cam.png';
@@ -20,12 +21,18 @@ function Consulta() {
 	const handleSearchVideo = (event) => {
 		event.preventDefault();
 
+		console.log(
+			`http://143.244.166.170:8088/rec/${camera.trim()}-${time.trim()}.flv`
+		);
+
 		if (!time || !camera) {
 			setErro('Insira uma data e horario');
 			return;
 		}
 
-		setLocalVideo(`http://143.244.166.170:8088/rec/${camera}-${time}.flv`);
+		setLocalVideo(
+			`http://143.244.166.170:8088/rec/stream47-${time.trim()}.flv`
+		);
 	};
 
 	const handleChangeInputs = (event) => {
@@ -36,7 +43,8 @@ function Consulta() {
 		}
 
 		if (event.target.name === 'time') {
-			setTime(String(item));
+			const timeFormat = item.replace(':', '_');
+			setTime(timeFormat);
 		}
 
 		console.log(time, camera);
@@ -89,7 +97,6 @@ function Consulta() {
 					className="inputs_syle"
 					type="datetime-local"
 					onChange={handleChangeInputs}
-					value={time}
 				/>
 				<Button
 					className="btn_query"
@@ -100,7 +107,22 @@ function Consulta() {
 					Consultar
 				</Button>
 				{localVideo && (
-					<ReactFlvPlayer url={localVideo} width="100%" isMuted={true} />
+					<ReactFlvPlayer
+						url={localVideo}
+						isMuted
+						handleError={(err) => {
+							switch (err) {
+								case 'NetworkError':
+									console.log('network error', err);
+									break;
+								case 'MediaError':
+									console.log('network error', err);
+									break;
+								default:
+									console.log('other error', err);
+							}
+						}}
+					/>
 				)}
 			</div>
 		</section>
