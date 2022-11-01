@@ -47,7 +47,17 @@ video {
     border-radius: 8px;
 }
 
+.container-buttons{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container-buttons
 .btn_query {
+  max-width: 150px;
+  width: 100%;
   padding: 8px!important;
   margin: 10px!important;
 }

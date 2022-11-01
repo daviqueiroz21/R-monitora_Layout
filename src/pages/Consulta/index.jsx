@@ -1,6 +1,5 @@
 /* eslint-disable indent */
 import React, { useState, useEffect } from 'react';
-import { ReactFlvPlayer } from 'flv-player-react';
 import './style.css';
 import camright from '../../assets/right_cam.png';
 import camleft from '../../assets/left_cam.png';
@@ -31,7 +30,7 @@ function Consulta() {
 		}
 
 		setLocalVideo(
-			`http://143.244.166.170:8088/rec/stream47-${time.trim()}.flv`
+			`http://143.244.166.170:8088/rec/${camera.trim()}-${time.trim()}.mp4`
 		);
 	};
 
@@ -98,31 +97,28 @@ function Consulta() {
 					type="datetime-local"
 					onChange={handleChangeInputs}
 				/>
-				<Button
-					className="btn_query"
-					variant="contained"
-					color="success"
-					onClick={handleSearchVideo}
-				>
-					Consultar
-				</Button>
+				<div className="container-buttons">
+					<Button
+						className="btn_query"
+						variant="contained"
+						color="success"
+						onClick={handleSearchVideo}
+					>
+						Consultar
+					</Button>
+					<Button
+						className="btn_query"
+						variant="contained"
+						color="error"
+						onClick={() => setLocalVideo('')}
+					>
+						Limpar
+					</Button>
+				</div>
 				{localVideo && (
-					<ReactFlvPlayer
-						url={localVideo}
-						isMuted
-						handleError={(err) => {
-							switch (err) {
-								case 'NetworkError':
-									console.log('network error', err);
-									break;
-								case 'MediaError':
-									console.log('network error', err);
-									break;
-								default:
-									console.log('other error', err);
-							}
-						}}
-					/>
+					<video controls>
+						<source src={localVideo} type="video/mp4" />
+					</video>
 				)}
 			</div>
 		</section>
